@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-1-10-3-2025</title>
+    <style>
+      /* Black Background */
+      body {
+        background-color: white;
+        overflow: hidden;
+        margin: 0;
+        height: 100vh;
+        position: relative;
+      }
+
+      /* Screw Style */
+      .screw, .screw2 {
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        top: -50px; /* Start above the screen */
+        animation: fall linear infinite;
+        z-index: -1;
+      }
+      .screw { background-image: url("/screw-nut-clipart-xl.png"); }
+      .screw2 { background-image: url("/screw-clipart-xl.png"); }
+
+      /* Keyframes for Falling Effect */
+      @keyframes fall {
+        from {
+          transform: translateY(-50px);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+      .container {
+        width: 90%;
+        max-width: 450px;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .planet {
+        width: 60%;
+        max-width: 250px;
+        height: auto;
+        aspect-ratio: 1/1;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        backdrop-filter: blur(3px) saturate(180%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        filter: drop-shadow(0 0 10px rgba(40, 40, 40, 0.3));
+      }
+      .planet .shadow {
+        width: 100%;
+        height: 96%;
+        border-radius: 50%;
+        box-shadow: 27px 0 0 7px rgba(110, 107, 107, 0.15);
+        position: absolute;
+        left: -12%;
+      }
+      .companylogo {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background-image: url("/Group\ 123492.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+      .satellite {
+        width: 25%;
+        max-width: 100px;
+        aspect-ratio: 1/1;
+        background-image: url("/earth-clipart-xl.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 3em;
+        left: 2em;
+        z-index: 99;
+        animation: spin 6s linear infinite;
+      }
+      @keyframes spin {
+        49% { z-index: 1; }
+        50% { left: 20em; bottom: 10em; z-index: -1; }
+        100% { z-index: -1; }
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container { width: 80%; }
+        .planet { width: 50%; }
+        .companylogo { width: 70%; height: 70%; }
+        .satellite { width: 20%; }
+      }
+      @media (max-width: 480px) {
+        .container { width: 95%; }
+        .planet { width: 40%; }
+        .companylogo { width: 60%; height: 60%; }
+        .satellite { width: 18%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="planet">
+        <div class="companylogo"></div>
+        <div class="shadow"></div>
+      </div>
+      <div class="satellite"></div>
+    </div>
+    <script>
+      function createScrews(className, minSize, maxSize) {
+        for (let i = 0; i < 3; i++) {
+          let screw = document.createElement("div");
+          screw.classList.add(className);
+          let size = Math.random() * (maxSize - minSize) + minSize;
+          screw.style.width = `${size}px`;
+          screw.style.height = `${size}px`;
+          screw.style.left = `${Math.random() * 100}vw`;
+          screw.style.animationDuration = `${Math.random() * 3 + 2}s`;
+          screw.style.animationDelay = `${Math.random() * 2}s`;
+          document.body.appendChild(screw);
+        }
+      }
+      setInterval(() => createScrews("screw", 10, 40), 2000);
+      setInterval(() => createScrews("screw2", 10, 20), 2000);
+    </script>
+  </body>
+</html>
