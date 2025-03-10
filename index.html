@@ -15,7 +15,8 @@
       }
 
       /* Screw Style */
-      .screw, .screw2 {
+      .screw,
+      .screw2 {
         position: absolute;
         background-size: cover;
         background-repeat: no-repeat;
@@ -23,8 +24,12 @@
         animation: fall linear infinite;
         z-index: -1;
       }
-      .screw { background-image: url("/screw-nut-clipart-xl.png"); }
-      .screw2 { background-image: url("/screw-clipart-xl.png"); }
+      .screw {
+        background-image: url("screw-nut-clipart-xl.png");
+      }
+      .screw2 {
+        background-image: url("screw-clipart-xl.png");
+      }
 
       /* Keyframes for Falling Effect */
       @keyframes fall {
@@ -75,7 +80,7 @@
         position: absolute;
         width: 80%;
         height: 80%;
-        background-image: url("/logo.png");
+        background-image: url("logo.png");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -84,7 +89,7 @@
         width: 25%;
         max-width: 100px;
         aspect-ratio: 1/1;
-        background-image: url("/earth-clipart-xl.png");
+        background-image: url("earth-clipart-xl.png");
         background-repeat: no-repeat;
         background-size: contain;
         border-radius: 50%;
@@ -95,23 +100,49 @@
         animation: spin 6s linear infinite;
       }
       @keyframes spin {
-        49% { z-index: 1; }
-        50% { left: 20em; bottom: 10em; z-index: -1; }
-        100% { z-index: -1; }
+        49% {
+          z-index: 1;
+        }
+        50% {
+          left: 20em;
+          bottom: 10em;
+          z-index: -1;
+        }
+        100% {
+          z-index: -1;
+        }
       }
-      
+
       /* Responsive Design */
       @media (max-width: 768px) {
-        .container { width: 80%; }
-        .planet { width: 50%; }
-        .companylogo { width: 70%; height: 70%; }
-        .satellite { width: 20%; }
+        .container {
+          width: 80%;
+        }
+        .planet {
+          width: 50%;
+        }
+        .companylogo {
+          width: 70%;
+          height: 70%;
+        }
+        .satellite {
+          width: 20%;
+        }
       }
       @media (max-width: 480px) {
-        .container { width: 95%; }
-        .planet { width: 40%; }
-        .companylogo { width: 60%; height: 60%; }
-        .satellite { width: 18%; }
+        .container {
+          width: 95%;
+        }
+        .planet {
+          width: 40%;
+        }
+        .companylogo {
+          width: 60%;
+          height: 60%;
+        }
+        .satellite {
+          width: 18%;
+        }
       }
     </style>
   </head>
